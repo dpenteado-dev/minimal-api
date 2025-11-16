@@ -46,7 +46,10 @@ app.MapPost("/administradores/login", ([FromBody] LoginDTO loginDTO, IAdministra
 
 ErrosDeValidacao validaDTO(VeiculoDTO veiculoDTO)
 {
-    var validacao = new ErrosDeValidacao();
+    var validacao = new ErrosDeValidacao
+    {
+        Mensagens = new List<string>()
+    };
 
     if (string.IsNullOrEmpty(veiculoDTO.Nome))
     {
